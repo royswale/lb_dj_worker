@@ -17,6 +17,6 @@ class LbDjWorkerPipeline(object):
 
     def process_item(self, item, spider):
         # self.log('Found a worker whose nickname is %s.' % item['nick'])
-        line = json.dumps(dict(item)) + "\n"
+        line = json.dumps(dict(item), ensure_ascii=False) + "\n"
         self.file.write(line)
         return item

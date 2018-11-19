@@ -1,6 +1,8 @@
 import scrapy
 import json
 
+from lb_dj_worker.items import LbDjWorkerItem
+
 
 class QuotesSpider(scrapy.Spider):
     name = "quotes"
@@ -20,7 +22,16 @@ class QuotesSpider(scrapy.Spider):
         # data = data.decode('unicode-escape')
         data = json.loads(data)
         # self.log(data)
-        self.log( json.dumps(data, sort_keys=True, indent = 4, separators = (',', ': '), ensure_ascii=False) )
+        # self.log( json.dumps(data, sort_keys=True, indent = 4, separators = (',', ': '), ensure_ascii=False) )
+        # countpage = data['countPage']
+        # self.log(countpage)
+        list = data['list']
+        for i in list:
+            item = LbDjWorkerItem()
+            item['id'] = i['id']
+            item['nick'] = i['workerNick']
+            yield item
+
 
 
 

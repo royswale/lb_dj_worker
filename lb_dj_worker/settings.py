@@ -92,5 +92,6 @@ ROBOTSTXT_OBEY = True
 # pipeline
 
 ITEM_PIPELINES = {
-    'lb_dj_worker.pipelines.LbDjWorkerPipeline': 300,
+    # 'lb_dj_worker.pipelines.LbDjWorkerPipeline': 300,
+    'lb_dj_worker.pipelines.MySQLPipeline': 500,
 }

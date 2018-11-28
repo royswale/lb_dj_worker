@@ -14,7 +14,7 @@ class QuotesSpider(scrapy.Spider):
             # 'http://quotes.toscrape.com/page/2/',
         # ]
         url = 'https://www.lb-dj.com/website/worker/workerListNew?city=&province=&district=&category=&codeType=&thisPage='
-        for i in range(1, 7508):
+        for i in range(1, 7830):
             yield scrapy.Request(url=url+str(i), callback=self.parse)
 
     def parse(self, response):
